@@ -51,9 +51,8 @@ public class PalindromePairs {
 
 	        root = root.next[word.charAt(i) - 'a'];
 	    }
-
-	    root.list.add(index);
 	    root.index = index;
+	    root.list.add(index);
 	}
 
 	private void search(String[] words, int i, TrieNode root, List<List<Integer>> list) {
@@ -61,11 +60,9 @@ public class PalindromePairs {
 	        if (root.index >= 0 && root.index != i && isPalindrome(words[i], j, words[i].length() - 1)) {
 	            list.add(Arrays.asList(i, root.index));
 	        }
-
 	        root = root.next[words[i].charAt(j) - 'a'];
 	        if (root == null) return;
 	    }
-
 	    for (int j : root.list) {
 	        if (i == j) continue;
 	        list.add(Arrays.asList(i, j));
